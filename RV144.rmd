@@ -1,8 +1,10 @@
 ---
 title: "RV144 Aids trials"
-author: "instr"
+author: "David Gomez"
 date: "April 13, 2016"
-output: html_document
+output:
+  html_document: default
+  word_document: default
 ---
 
 
@@ -52,6 +54,8 @@ rownames(results) <- c("none","aids")
 barchartGC(results,type = "percent")
 ```
 
+We would expect to see both graphs of equal size (50% on each side) if the two are independent.They do not appear to be equal ... shedding doubt on the idea of independence.    
+
 ### Numerical Results
 
 <!--Display numerical evidence as to the effectiveness of the vaccine with explanations !--> 
@@ -67,11 +71,16 @@ rowPerc(results)
 ## Inferential results
 
 <!--Display inferential evidence as to the effectiveness of the vaccine with explanations and interpretations!-->
+We now want to run a statistical test to see if the aids vaccine was seemingly effective.  we state the null and alternative hypothesis for this test.
 
+$H_0:$ There is no relationship between getting aids and having taken the aids vaccine
+
+$H_a:$ There is a realtion between Aids and having the Aids vaccine
 ```{r}
 chisqtestGC(results, graph = TRUE)
 ```
 
+The p-value of $.o4$ means the probability of getting a result like that just obtained if the null hypothesis is true is approximately 4 percent.  This is normally considered significant.
 
 ## Conclusions
 
